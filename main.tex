@@ -1,0 +1,25 @@
+\documentclass{report}
+\usepackage[a4paper,margin=1in,footskip=0.25in]{geometry}
+
+\input{latex-template/index.tex}
+
+\begin{document}
+
+\chapter{The Reals}
+
+\begin{definition}{Fields}{field}
+  A \emph{field} $\left(\F, +, \cdot\right)$ is a nonempty set $\F$, along with two binary operations,
+  addition $+: \F \times \F \rightarrow \F$
+  and multiplication $\cdot: \F \times \F \rightarrow \F$, satisfying the following,
+
+  \begin{enumerate}
+    \item \textbf{Associativity:} For all $x, y, z \in \F, (x + y) + z = x + (y + z) \tand (x \cdot y) \cdot z = x \cdot (y \cdot z)$.
+    \item \textbf{Commutativity:} For all $x, y \in \F$, $x + y = y + x \tand x \cdot y = y \cdot x$.
+    \item \textbf{Identities:} There exists an elements $0, 1 \in \F$ such that for all $x \in \F, x + 0 = x \tand x \cdot 1 = x$.
+    \item \textbf{Inverses:} For all $x \in \F$, there exists an elements $-x, x^{-1} \in \F$ such that $x + (-x) = 0 \tand x \cdot x^{-1} = 1$.
+    \item \textbf{Distributive Property:} For all $x, y, z \in \F$, $x \cdot (y + z) = (x \cdot y) + (x \cdot z)$.
+  \end{enumerate}
+
+\end{definition}
+
+\end{document}
