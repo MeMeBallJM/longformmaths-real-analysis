@@ -19,7 +19,22 @@
     \item \textbf{Inverses:} For all $x \in \F$, there exists an element $-x \in \F$ such that $x + (-x) = 0$, and if $x \neq 0$, there exists an element $x^{-1}$ such that $x \cdot x^{-1} = 1$.
     \item \textbf{Distributive Property:} For all $x, y, z \in \F$, $x \cdot (y + z) = (x \cdot y) + (x \cdot z)$.
   \end{enumerate}
+\end{definition}
 
+\begin{definition}{Ordered Fields}{ordered field}
+  An \emph{ordered field} $\left(\F, P, +, \cdot\right)$ is a $\emph{field} \left(\F, +, \cdot \right)$ with a subset $P \subseteq \F$, satisfying the following,
+  \begin{enumerate}
+    \item If $a, b \in P$, then $a + b \in P$ and $a \cdot b \in P$.
+    \item If $a \in \F$ and $a \neq 0$, then either $a \in P$ or $-a \in P$, but not both.
+  \end{enumerate}
+  Using the subset we define four relations $>, \geq, <$ and $\leq$.
+  Suppose $a, b \in \F$.
+  \begin{enumerate}
+    \item $a > b$ if $a - b \in P$.
+    \item $a \geq b$ if $a > b$ or $a = b$.
+    \item $a < b$ if $b > a \in P$.
+    \item $a \leq b$ if $a < b$ or $a = b$.
+  \end{enumerate}
 \end{definition}
 
 \end{document}
