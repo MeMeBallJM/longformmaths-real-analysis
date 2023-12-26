@@ -3,6 +3,8 @@
 
 \input{latex-template/index.tex}
 
+\usepackage{enumerate}
+
 \begin{document}
 
 \chapter{The Reals}
@@ -12,7 +14,7 @@
   addition $+: \F \times \F \rightarrow \F$
   and multiplication $\cdot: \F \times \F \rightarrow \F$, satisfying the following,
 
-  \begin{enumerate}
+  \begin{enumerate}[I.]
     \item \textbf{Associativity:} For all $x, y, z \in \F, (x + y) + z = x + (y + z) \tand (x \cdot y) \cdot z = x \cdot (y \cdot z)$.
     \item \textbf{Commutativity:} For all $x, y \in \F$, $x + y = y + x \tand x \cdot y = y \cdot x$.
     \item \textbf{Identities:} There exists elements $0, 1 \in \F$ such that for all $x \in \F, x + 0 = x \tand x \cdot 1 = x$.
@@ -21,39 +23,207 @@
   \end{enumerate}
 \end{definition}
 
-\begin{definition}{Ordered Fields}{ordered field}
-  An \emph{ordered field} $\left(\F, P, +, \cdot\right)$ is a $\emph{field} \left(\F, +, \cdot \right)$ with a subset $P \subseteq \F$, satisfying the following,
-  \begin{enumerate}
-    \item If $a, b \in P$, then $a + b \in P$ and $a \cdot b \in P$.
-    \item If $a \in \F$ and $a \neq 0$, then either $a \in P$ or $-a \in P$, but not both.
+\begin{notation}{}{}
+  Multiplication will usually be written like $xy$ or $(x)(y)$ instead of $x \cdot y$.
+  For example the distributive property would be written as $x(y + z) = xy + xz$.
+\end{notation}
+
+\begin{notation}{}{}
+  Addition of inverse elements will usually be written like $x - y$ instead of $x + (-y)$.
+\end{notation}
+
+\begin{lemma}{unique additive identity}{}
+  For any field $\left(\F, +, \cdot\right)$ there exists only one additive identity.
+\end{lemma}
+
+\begin{proof}
+  Assume $\left(\F, +, \cdot\right)$ forms a field, as well assume that $0$ and $0'$ are additive identities in $\F$.
+  Recall that this means $x = x + 0 = x + 0'$ for all $x \in \F$.
+  Using these identities as well as commutativity we obtain,
+  $$0 = 0 + 0' = 0' + 0 = 0'.$$
+  This shows that any two additive identities must be the equal, completing the proof.
+\end{proof}
+
+\begin{lemma}{unique multiplicative identity}{}
+  For any field $\left(\F, +, \cdot\right)$ there exists only one multiplicative identity.
+\end{lemma}
+
+\begin{proof}
+  Assume $\left(\F, +, \cdot\right)$ forms a field, as well assume that $1$ and $1'$ are additive identities in $\F$.
+  Recall that this means $x = 1x =  1'x$ for all $x \in \F$.
+  Using these identities as well as commutativity we obtain,
+  $$1 = 1 \cdot 1' = 1' \cdot 1 = 1'.$$
+  This shows that any two multiplicative identities must be equal, completing the proof.
+\end{proof}
+
+\begin{lemma}{$0x = 0$}{}
+  For any field $\left(\F, +, \cdot\right)$, $0x = 0$ for all $x \in \F$.
+\end{lemma}
+
+\begin{proof}
+  Assume $\left(\F, +, \cdot\right)$ forms a field and $x \in \F$.
+  Using the additive identity, distributive property and additive inverses we obtain,
+  $$0 = x - x = 1x - x = (1 + 0)x - x = 1x + 0x - x = x - x + 0x = 0x.$$
+  This shows that $0 = 0x$ for all $x \in \F$, completing the proof.
+\end{proof}
+
+\begin{lemma}{$-x = (-1)x$}{}
+  For any field $\left(\F, +, \cdot\right)$, $-x = (-1)x$ for any $x \in \F$.
+\end{lemma}
+
+\begin{proof}
+  Assume $\left(\F, +, \cdot\right)$ forms a field and $x \in \F$.
+  Using properties of a field and the previous lemma we obtain,
+  $$-x = -x + 0 = -x + 0x = -x + x(1 - 1) = -x + 1x + (-1)x = -x + x + (-1)x = 0 + (-1)x = (-1)x.$$
+  This shows that $-x = (-1)x$ for all $x \in \F$, completing the proof.
+\end{proof}
+
+\begin{lemma}{$x = -(-x)$}{}
+  For any field $\left(\F, +, \cdot\right)$, $-(-x) = x$ for any $x \in \F$.
+\end{lemma}
+
+\begin{proof}
+  Assume $\left(\F, +, \cdot\right)$ forms a field and $x \in \F$.
+  By the definition of a field there exists an element $-x \in \F$ such that $x - x = 0$.
+  Furthermore, there exists an element $-(-x) \in \F$ such that $-(-x) - x = 0$.
+  Using the properties of a field we obtain,
+  $$x = x + 0 = x - x -(-x) = -(-x).$$
+  This shows that $x = -(-x)$ for any $x \in \F$, completing the proof.
+\end{proof}
+
+\begin{lemma}{$0 = -0$}{}
+  For any field $\left(\F, +, \cdot\right)$, $0 = -0$.
+\end{lemma}
+
+\begin{proof}
+  Assume $\left(\F, +, \cdot\right)$ forms a field.
+  Using properties of field as well as previously proven statements we obtain,
+  $$0 = 0 \cdot 0 = 0(1 - 1) = (1)0 + (-1)0 = 0 - 0 = -0.$$
+\end{proof}
+
+\begin{definition}{}{}
+  An \emph{ordered set} $\left(S, >\right)$ is a set $S$ with a relation $>$ called an \emph{ordering} such that,
+  \begin{enumerate}[I.]
+    \item For all $x, y \in S$ either $x > y$, $y > x$ or $x = y$.
+    \item If $x > y$ and $y > z$ then $x > z$.
   \end{enumerate}
-  Using the subset we define four relations $>, \geq, <$ and $\leq$.
-  Suppose $a, b \in \F$.
-  \begin{enumerate}
-    \item $a > b$ if $a - b \in P$.
-    \item $a \geq b$ if $a > b$ or $a = b$.
-    \item $a < b$ if $b > a \in P$.
-    \item $a \leq b$ if $a < b$ or $a = b$.
+  We also define relations $\geq, <$ and $\leq$,
+  \begin{enumerate}[I.]
+    \item $x \geq y$ if $x > y$ or $x = y$.
+    \item $x < y$ if $y > x$.
+    \item $x \leq y$ if $x < y$ or $x = y$.
   \end{enumerate}
 \end{definition}
 
-\begin{fact}{}{}
-  If $\left(\F, P, +, \cdot \right)$ is an ordered field we will assume the following,
-  suppose $a,b,c \in \F$.
-  \begin{enumerate}
-    \item If $a > b$ then $a + c > b + c$.
-    \item If $a > b$ and $b > c$ then $a > c$.
-    \item If $a > b$ and $c > 0$ then $ac > bc$ otherwise if $c < 0$ then $ac < bc$.
-    \item If $a \neq 0$ then $a^2 > 0$.
+\begin{definition}{Ordered Fields}{ordered field}
+  A field $\left(\F, +, \cdot\right)$ is an \emph{ordered field} $\left(\F, +, \cdot, > \right)$ if $\left(\F, >\right)$ forms an ordered set satisfying the following,
+  \begin{enumerate}[I.]
+    \item For all $x,y,z \in \F$, if $x > y$ then $x + z > y + z$.
+    \item For all $x,y \in \F$, if $x > 0$ and $y > 0$ then $xy > 0$.
   \end{enumerate}
-\end{fact}
+\end{definition}
+
+\begin{notation}{}{}
+  We say a number is \emph{positive} if $x > 0$ and \emph{negative} if $x < 0$.
+\end{notation}
+
+\begin{lemma}{$x > y \implies -y > -x$}{}
+  If $\left(\F, +, \cdot, >\right)$ is an ordered field, $x, y \in \F$ and $x > y$ then $-y > -x$.
+\end{lemma}
+
+\begin{proof}
+  Assume that $\left(\F, +, \cdot, >\right)$ is an ordered field, $x, y \in \F$ and $x > y$.
+  By the second property of an ordered field $0 > y - x$ furthermore $-y > -x$.
+  This completes the proof.
+\end{proof}
+
 
 \begin{definition}{Absolute Value}{abs val}
-  Suppose $\left(F, P, +, \cdot\right)$ is an ordered field, we define the absolute value function $|\cdot|: \F \rightarrow \F$ to be,
+  Suppose $\left(\F, P, +, \cdot\right)$ is an ordered field, we define the \emph{absolute value} function $|\cdot|: \F \rightarrow \F$ to be,
   $$|x| = \begin{cases}
       x,  & x \geq 0 \\
       -x, & x < 0    \\
     \end{cases}$$
 \end{definition}
+
+
+\begin{proposition}{$|x| > 0$}{}
+  If $\left(\F, +, \cdot, >\right)$ is an ordered field,
+  then $|x| > 0$ for all $x \in \F$ where $x \neq 0$.
+  If $x = 0$ then $|x| = 0$, which is clear from the definition.
+\end{proposition}
+
+\begin{proof}
+  Assume $\left(\F, +, \cdot, >\right)$ forms an ordered field, $x \in \F$ and $x \neq 0$.
+  By the definition of an ordered field $x > 0$ or $x < 0$.
+
+  First consider the case when $x > 0$.
+  Notice, by the definition of an ordered set $x \geq 0$ as well.
+  By the definition of the absolute value $|x| = x$.
+  Thus, $|x| > 0$.
+
+  Now, consider the case when $x < 0$.
+  By the definition of the absolute value $|x| = -x$.
+  By lemma 1.0.7 $-x > 0$, as well as $|x| > 0$.
+
+  In either case $|x| > 0$ completing the proof.
+\end{proof}
+
+\begin{proposition}{$|x| = |-x|$}{}
+  If $\left(\F, +, \cdot, >\right)$ is an ordered field,
+  then $|x| = |-x|$ for all $x \in \F$.
+\end{proposition}
+
+\begin{proof}
+  Assume $\left(\F, +, \cdot, >\right)$ is an ordered field.
+  Notice that $0 \geq 0$ and thus $|0| = |-0| = 0$.
+  There are two other cases $x > 0$ or $x < 0$.
+  The argument is the same for either case, so we will just consider the case when $x > 0$.
+  By the definition of the absolute value $|x| = x$.
+  Using lemma 1.0.7, we know that $-x < 0$.
+  By the definition of the absolute value $|-x| = -(-x) = x$.
+  This shows that $|x| = |-x|$ for all $x \in \F$, completing the proof.
+\end{proof}
+
+\begin{proposition}{$|x| \geq x \geq -|x|$}{}
+  If $\left(\F, +, \cdot, >\right)$ is an ordered field,
+  then $|x| \geq x \geq -|x|$ for all $x \in \F$.
+\end{proposition}
+
+\begin{proof}
+  Assume $\left(\F, +, \cdot, >\right)$ is ordered field.
+  Notice that this proposition can be split into two, firstly that $|x| \geq x$ and secondly that $x \geq -|x|$.
+  We will first prove that $|x| \geq x$ for all $x$ then we will prove that $x \geq -|x|$ for all $x$.
+
+  Assume that $x \in \F$.
+  By the definition of an ordered field $x \geq 0$ or $x < 0$.
+  First consider the case when $x \geq 0$.
+  By the definition of the absolute value $|x| = x$.
+  Thus, $|x| \geq x$.
+  Now consider the case when $x < 0$.
+  Notice that this is equivalent as saying $0 > x$.
+  By the definition of the absolute value $|x| = -x$.
+  Furthermore, by proposition 1.0.1 $|x| > 0$.
+  Applying the transitive property of an ordered field we get that $|x| \geq x$.
+  Together both cases show that $|x| \geq 0$ for all $x \in \F$, completing the first half of the proof.
+
+  Just as before, assume that $x \in \F$.
+  By the definition of an ordered field $x \geq 0$ or $x < 0$.
+  First consider the case when $x \geq 0$.
+  By the definition of the absolute value $|x| = x$.
+  Thus, $|x| \geq 0$.
+  Applying lemmas 1.0.7 and 1.0.6 we obtain that $0 \geq -|x|$.
+  Furthermore, applying the transitive property of an ordered field we get that $x \geq -|x|$.
+  Now consider the case when $x < 0$.
+  By the definition of the absolute value $|x| = -x$.
+  Multiplying both sides by $-1$ and applying lemmas 1.0.4 and 1.0.5 we get that $-|x| = x$.
+  This shows that $x \geq -|x|$.
+  Together both cases show that $x \geq -|x|$ for all $x \in \F$, completing the second half of the proof.
+\end{proof}
+
+\begin{proposition}{$|xy| = |x||y|$}{}
+  If $\left(\F, +, \cdot, >\right)$ is an ordered field,
+  then $|xy| = |x||y|$ for all $x,y \in \F$.
+\end{proposition}
 
 \end{document}
