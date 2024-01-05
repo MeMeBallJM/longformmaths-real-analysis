@@ -15,6 +15,7 @@
   and multiplication $\cdot: \F \times \F \rightarrow \F$, satisfying the following,
 
   \begin{enumerate}[I.]
+    \item \textbf{Closure:} For all $x, y \in \F$, $x + y \in \F$ and $x \cdot y \in \F$.
     \item \textbf{Associativity:} For all $x, y, z \in \F, (x + y) + z = x + (y + z) \tand (x \cdot y) \cdot z = x \cdot (y \cdot z)$.
     \item \textbf{Commutativity:} For all $x, y \in \F$, $x + y = y + x \tand x \cdot y = y \cdot x$.
     \item \textbf{Identities:} There exists elements $0, 1 \in \F$ such that for all $x \in \F, x + 0 = x \tand x \cdot 1 = x$.
@@ -225,5 +226,67 @@
   If $\left(\F, +, \cdot, >\right)$ is an ordered field,
   then $|xy| = |x||y|$ for all $x,y \in \F$.
 \end{proposition}
+
+\begin{proof}
+  I will do this later, right now I am lazy
+\end{proof}
+
+\begin{fact}{$|a| \leq b \iff -b \leq a \leq b$}{}
+  If $\left(\F, +, \cdot, >\right)$ is an ordered field,
+  then $|a| \leq b$ if and only if $-b \leq a \leq b$ for all $a, b \in \F$.
+\end{fact}
+
+\begin{fact}{The triangle inequality}{}
+  If $\left(\F, +, \cdot, >\right)$ is an ordered field,
+  then $|a + b| \leq |a| + |b|$ for all $a, b \in \F$.
+\end{fact}
+
+\begin{fact}{The reverse triangle inequality}{}
+  If $\left(\F, +, \cdot, >\right)$ is an ordered field,
+  then $||a|-|b|| \leq |a-b|$ for all $a, b \in \F$.
+\end{fact}
+
+\begin{definition}{Metric on ordered fields}{}
+  If $\left(\F, +, \cdot, >\right)$ is an ordered field,
+  then we define a metric $d: \F \times \F \rightarrow \F$ on $(\F, +, \cdot, >)$.
+  $$d(x, y) := |x - y|$$
+\end{definition}
+
+\begin{lemma}{Distance function commutes}{}
+  If $\left(\F, +, \cdot, >\right)$ is an ordered field,
+  then $d(x, y) = d(y, x)$ for all $x,y \in \F$.
+\end{lemma}
+
+\begin{proof}
+  Assume $\left(\F, +, \cdot, >\right)$ is an ordered field
+  and that $x,y \in \F$.
+  Then, by proposition 1.0.2,
+  $$d(x, y) = |x - y| = |y - x| = d(y, x).$$
+\end{proof}
+
+\begin{definition}{Upper and Lower bounds on sets}{}
+  If $X$ is an ordered set and $Y \subseteq X$,
+  then an \emph{upper bound} $b$ on $Y$ is an element $b \in X$ such that $b > y$ for all $y \in Y$.
+  Suppose $b$ is an upper bound on $Y$,
+  if for every upper bound $b'$ on $Y$ $b \leq b'$ then $b$ is the \emph{least upper bound} on $Y$ denoted $\sup(Y)$.
+  You can similarly define \emph{lower bounds} and the \emph{greatest lower bound}, greatest lower bounds are denoted with $\inf(X)$.
+\end{definition}
+
+\begin{definition}{Bounded sets}{}
+  A subset $Y \subseteq X$ of an ordered set $X$
+  is bounded above if there exists an upper bound on $Y$
+  and is bounded below if there exists a lower bound on $Y$,
+  if the set is both bounded above and below we say the set is bounded.
+\end{definition}
+
+\begin{definition}{Least upper bound property}{}
+  An ordered field $\left(\F, +, \cdot, >\right)$ has the least upper bound property if
+  for every subset $E \subseteq \F$ that is bounded above there exists a least upper bound on $E$ in $\F$.
+\end{definition}
+
+\begin{fact}{The existence of $\R$}{}
+  There exists a unique ordered field $(\R, +, \cdot, >)$ with the least upper bound property.
+\end{fact}
+
 
 \end{document}
