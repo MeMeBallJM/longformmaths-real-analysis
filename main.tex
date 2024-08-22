@@ -3,7 +3,8 @@
 
 \input{latex-template/index.tex}
 
-\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{mathrsfs}
 
 \begin{document}
 
@@ -14,7 +15,7 @@
   addition $+: \F \times \F \rightarrow \F$
   and multiplication $\cdot: \F \times \F \rightarrow \F$, satisfying the following,
 
-  \begin{enumerate}[I.]
+  \begin{enumerate}[label=(\roman*)]
     \item \textbf{Closure:} For all $x, y \in \F$, $x + y \in \F$ and $x \cdot y \in \F$.
     \item \textbf{Associativity:} For all $x, y, z \in \F, (x + y) + z = x + (y + z) \tand (x \cdot y) \cdot z = x \cdot (y \cdot z)$.
     \item \textbf{Commutativity:} For all $x, y \in \F$, $x + y = y + x \tand x \cdot y = y \cdot x$.
@@ -104,12 +105,12 @@
 
 \begin{definition}{}{}
   An \emph{ordered set} $\left(S, >\right)$ is a set $S$ with a relation $>$ called an \emph{ordering} such that,
-  \begin{enumerate}[I.]
+  \begin{enumerate}[label=(\roman*)]
     \item For all $x, y \in S$ either $x > y$, $y > x$ or $x = y$.
     \item If $x > y$ and $y > z$ then $x > z$.
   \end{enumerate}
   We also define relations $\geq, <$ and $\leq$,
-  \begin{enumerate}[I.]
+  \begin{enumerate}[label=(\roman*)]
     \item $x \geq y$ if $x > y$ or $x = y$.
     \item $x < y$ if $y > x$.
     \item $x \leq y$ if $x < y$ or $x = y$.
@@ -118,7 +119,7 @@
 
 \begin{definition}{Ordered Fields}{ordered field}
   A field $\left(\F, +, \cdot\right)$ is an \emph{ordered field} $\left(\F, +, \cdot, > \right)$ if $\left(\F, >\right)$ forms an ordered set satisfying the following,
-  \begin{enumerate}[I.]
+  \begin{enumerate}[label=(\roman*)]
     \item For all $x,y,z \in \F$, if $x > y$ then $x + z > y + z$.
     \item For all $x,y \in \F$, if $x > 0$ and $y > 0$ then $xy > 0$.
   \end{enumerate}
@@ -283,6 +284,33 @@
   An ordered field $\left(\F, +, \cdot, >\right)$ has the least upper bound property if
   for every subset $E \subseteq \F$ that is bounded above there exists a least upper bound on $E$ in $\F$.
 \end{definition}
+
+\begin{problem}{Exercise 1.1}{}
+Explain the error in the following ``proof" that 2 = 1.
+Let $x = y.$ Then
+\begin{align}
+  x^2            & = xy       \\
+  x^2 - y^2      & = xy - y^2 \\
+  (x + y)(x - y) & = y(x - y) \\
+  x + y          & = y        \\
+  2y             & = y        \\
+  2              & = 1
+\end{align}
+\end{problem}
+
+\begin{problem}{}{}
+Which of the following statements are true? Give a short explanation for each of your answers.
+\begin{enumerate}[label=(\alph*)]
+  \item For every $n \in \N$, there is an integer $m \in \N$ such that $m > n$.
+  \item For every $m \in \N$, there is an integer $n \in \N$ such that $m > n$.
+  \item There is an integer $m \in \N$ such that for all $n \in \N$, $m \geq n$.
+  \item There is an integer $n \in \N$ such that for all $m \in \N$, $m \geq n$.
+  \item There is an $n \in \R$ such that for all $m \in \R$, $m \geq n$.
+  \item For every pair $x, y \in \N$ such that $x < y$ there exists an $z \in \N$ such that $x < z < y$.
+  \item For every pair $x, y \in \R$ such that $x < y$ there exists an $z \in \R$ such that $x < z < y$.
+\end{enumerate}
+
+\end{problem}
 
 
 
